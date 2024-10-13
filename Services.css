@@ -1,5 +1,5 @@
 ﻿.quote-section {
-    background-image:url('./background/serv.jpeg');
+    background-image:url('./serv.jpeg');
     padding: 50px 20px;
     display: flex;
     justify-content: center;
@@ -43,7 +43,7 @@
     padding: 40px;
     font-family: 'Palatino Linotype', serif;
     color: #154d44;
-    background-image: url('./background/list.jpeg');
+    background-image: url('./list.jpeg');
     background-size:cover;
     width: auto;
     height: auto;

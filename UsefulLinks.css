@@ -16,17 +16,17 @@
 
 /* Different background images for each section */
 .section-1 {
-    background-image: url('./background/ablegal.jpeg'); /* Update with your image path */
+    background-image: url('./ablegal.jpeg'); /* Update with your image path */
 
 }
 
 .section-2 {
-    background-image: url('./background/uselink.jpeg'); /* Update with your image path */
+    background-image: url('./uselink.jpeg'); /* Update with your image path */
     
 }
 
 .section-3 {
-    background-image: url('./background/whats-news.jpeg'); /* Update with your image path */
+    background-image: url('./whats-news.jpeg'); /* Update with your image path */
 }
     .section-3 p {
         font-size: 30px;
@@ -43,7 +43,7 @@
     }
 
 .section-4 {
-    background-image: url('./background/advanced-tech.jpeg'); /* Update with your image path */
+    background-image: url('./advanced-tech.jpeg'); /* Update with your image path */
 }
 
 .main-title {

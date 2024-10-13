@@ -21,7 +21,7 @@
     }
 
 .legalpractice {
-    background-image: url('./background/legal-prac.jpeg'); /* Replace with your image URL */
+    background-image: url('./legal-prac.jpeg'); /* Replace with your image URL */
     background-attachment: fixed; /* Fix the background image */
     background-size: cover; /* Make sure the image covers the entire background */
     background-position: center; /* Center the image */
@@ -56,7 +56,7 @@
     }
 
 .mine {
-    background-image: url('./background/mine.jpeg'); /* Replace with your image URL */
+    background-image: url('./mine.jpeg'); /* Replace with your image URL */
     background-attachment: fixed; /* Fix the background image */
     background-size: cover; /* Make sure the image covers the entire background */
     background-position: center; /* Center the image */
@@ -89,7 +89,7 @@
     }
 
 .micro {
-    background-image: url('./background/agri.jpeg'); /* Replace with your image URL */
+    background-image: url('./agri.jpeg'); /* Replace with your image URL */
     background-attachment: fixed; /* Fix the background image */
     background-size: cover; /* Make sure the image covers the entire background */
     background-position: center; /* Center the image */
@@ -122,7 +122,7 @@
     }
 
 .pro {
-    background-image: url('./background/court.jpeg'); /* Replace with your image URL */
+    background-image: url('./court.jpeg'); /* Replace with your image URL */
     background-attachment: fixed; /* Fix the background image */
     background-size: cover; /* Make sure the image covers the entire background */
     background-position: center; /* Center the image */

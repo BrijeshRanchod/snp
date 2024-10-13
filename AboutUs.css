@@ -39,7 +39,7 @@ body {
 }
 
 .summary-section {
-    background-image: url('./background/exec-summ.jpeg');
+    background-image: url('./exec-summ.jpeg');
     background-size: cover;
     background-position: left;
     background-repeat: no-repeat;
@@ -72,7 +72,7 @@ body {
 }
 
 .vision-section {
-    background-image: url('./background/greenbkgrnd.png');
+    background-image: url('./greenbkgrnd.png');
     background-size: cover;
     background-position: right;
     background-repeat: no-repeat;
@@ -92,7 +92,7 @@ body {
 }
 
 .approach-section {
-    background-image: url('./background/logs.jpeg');
+    background-image: url('./logs.jpeg');
     background-size: cover;
     background-position: right;
     background-repeat: no-repeat;
@@ -120,7 +120,7 @@ body {
 }
 
 .solution-section {
-    background-image: url('./background/brickwall.jpg');
+    background-image: url('./brickwall.jpg');
     background-size: cover;
     background-position: center right;
     background-repeat: no-repeat;
@@ -143,7 +143,7 @@ body {
     width: 100%;
     padding: 10px;
     font-family: 'Palatino Linotype';
-    background-image: url('./background/green.jpeg'); /* Replace with your image URL */
+    background-image: url('./green.jpeg'); /* Replace with your image URL */
     background-attachment: fixed; /* Fix the background image */
     background-size: cover; /* Make sure the image covers the entire background */
     background-position: center; /* Center the image */

@@ -1,0 +1,86 @@
+﻿body {
+    font-family: 'Palatino Linotype', serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* General section styling */
+.section {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Different background images for each section */
+.section-1 {
+    background-image: url('./background/ablegal.jpeg'); /* Update with your image path */
+
+}
+
+.section-2 {
+    background-image: url('./background/uselink.jpeg'); /* Update with your image path */
+    
+}
+
+.section-3 {
+    background-image: url('./background/whats-news.jpeg'); /* Update with your image path */
+}
+    .section-3 p {
+        font-size: 30px;
+        font-family: 'Palatino Linotype';
+        color: black;
+        background-color: rgba(128, 128, 128, 0.7);
+    }
+
+    .section-3 h1 {
+        font-size: 46px;
+        font-family: 'Palatino Linotype';
+        color: black;
+        background-color: rgba(128, 128, 128, 0.7);
+    }
+
+.section-4 {
+    background-image: url('./background/advanced-tech.jpeg'); /* Update with your image path */
+}
+
+.main-title {
+    font-size: 46px;
+    font-weight: bold;
+    background-color: rgba(128, 128, 128, 0.7);
+    color: white;
+    text-align:center;
+    margin-bottom: 20px;
+}
+
+.sub-title {
+    font-size: 30px;
+    font-weight: bold;
+    background-color: rgba(128, 128, 128, 0.7);
+    color: white;
+    margin-bottom: 40px;
+}
+
+.links ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.links li {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+    background-color: rgba(128, 128, 128, 0.7);
+}
+
+.links a {
+    color: #154d44;
+    text-decoration: none;
+}
+
+    .links a:hover {
+        text-decoration: underline;
+    }

@@ -1,0 +1,229 @@
+﻿.quote-section {
+    background-image:url('./background/serv.jpeg');
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.quote-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .quote-content h1{
+        font-weight:bold;
+        color: #154d44;
+        font-family: 'Palatino Linotype';
+        font-size: 2.5rem;
+        margin-left: 20px;
+        font-weight: bold;
+        text-align:center;
+    }
+
+    .quote-content p {
+        font-weight: bold;
+        color: #154d44;
+        font-family: 'Palatino Linotype';
+        font-size: 1.5rem;
+        margin-left: 20px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+/* Container for the services */
+.services-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 40px;
+    font-family: 'Palatino Linotype', serif;
+    color: #154d44;
+    background-image: url('./background/list.jpeg');
+    background-size:cover;
+    width: auto;
+    height: auto;
+}
+
+    /* Styling for each section */
+    .services-container div {
+        margin-bottom: 20px;
+    }
+
+    /* Styling for the headings */
+    .services-container h1 {
+        font-size: 20pt;
+        margin-bottom: 10px;
+    }
+
+    /* Styling for the lists */
+    .services-container ul {
+        list-style-type: disc;
+        padding-left: 20px;
+        margin-bottom: 20px;
+    }
+
+        .services-container ul li {
+            margin-bottom: 8px;
+        }
+
+
+/* Testimonials Section */
+.testimonials-section {
+    text-align: center;
+    background-color: #154d44;
+    padding: 40px;
+}
+
+    .testimonials-section h2{
+        color:white;
+        font-family:'Palatino Linotype';
+    }
+
+.testimonial-carousel {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.testimonial {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+    .testimonial.active {
+        display: flex; /* Show the active testimonial */
+    }
+
+.client-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+}
+
+.testimonial-content h3 {
+    font-size: 1.5em;
+    font-family: 'Palatino Linotype';
+    margin-bottom: 10px;
+}
+
+.testimonial-content p {
+    font-size: 1em;
+    font-family: 'Palatino Linotype';
+    color: #333;
+}
+
+.carousel-buttons {
+    margin-top: 20px;
+}
+
+    .carousel-buttons .prev, .carousel-buttons .next {
+        cursor: pointer;
+        font-size: 2em;
+        padding: 10px;
+        background-color: transparent;
+        border: none;
+    }
+
+.dots {
+    margin-top: 20px;
+}
+
+    .dots .dot {
+        cursor: pointer;
+        height: 15px;
+        width: 15px;
+        margin: 0 5px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+    }
+
+.dot.active {
+    background-color: #717171;
+}
+
+
+
+.container {
+    width: 80%;
+    padding: 10px;
+    font-family: 'Palatino Linotype';
+    color: #154d44;
+    margin: 0 auto; /* Center the container */
+}
+
+/* Grid layout for images */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+/* Styling each grid item */
+.grid-item {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+    gap: 5px;
+}
+
+/* Image styling with responsiveness */
+.zoom-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+}
+
+    .zoom-image:hover {
+        transform: scale(1.1); /* Zoom in effect */
+    }
+
+/* Special case for the central image */
+.image-grid .grid-item:nth-child(2) img {
+    width: auto;
+    height: 63vh;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr); /* Show two columns on medium screens */
+    }
+
+        .image-grid .grid-item:nth-child(2) img {
+            height: 45vh; /* Resize central image for smaller screens */
+        }
+}
+
+@media (max-width: 768px) {
+    .image-grid {
+        grid-template-columns: 1fr; /* Show one column on small screens */
+    }
+
+        .image-grid .grid-item:nth-child(2) img {
+            height: 35vh; /* Resize central image for smaller screens */
+        }
+}
+
+@media (max-width: 480px) {
+    .zoom-image {
+        width: 100%; /* Ensure the image takes up the full width */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .image-grid .grid-item:nth-child(2) img {
+        height: auto; /* Central image scales naturally on very small screens */
+    }
+}

@@ -1,0 +1,175 @@
+﻿.white-heading {
+    font-family: 'Palatino Linotype';
+    font-size: 40px;
+    color: white;
+    background-color: rgba(21, 77, 68, 0.7);
+    text-align: center;
+    font-weight: bold;
+}
+
+.whitep {
+    font-family: 'Palatino Linotype';
+    font-size: 30px;
+    color: white;
+    background-color: rgba(21, 77, 68, 0.5);
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.green-heading {
+    font-family: 'Palatino Linotype';
+    font-size: 40px;
+    color: #154d44;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* General styling */
+body {
+    font-family:'Palatino Linotype';
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+/* Section container */
+.news-section {
+    text-align: center;
+    background-color: #1a4f39; /* Dark green background */
+    color: white;
+    padding: 50px 0;
+}
+
+    /* Section title */
+    .news-section h2 {
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+
+/* Grid layout for the items */
+.news-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* News items styling */
+.news-item {
+    background-color: #004a28; /* A slightly different green tone */
+    padding: 20px;
+    width: 200px;
+    border-radius: 10px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+    /* Icons for each news item */
+    .news-item img {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 10px;
+    }
+
+    /* News item title */
+    .news-item h3 {
+        font-size: 18px;
+        color: white;
+        font-family:'Palatino Linotype';
+    }
+
+    /* Hover effect */
+    .news-item:hover {
+        transform: scale(1.05);
+        background-color: #2d6b4a; /* Lighter green on hover */
+    }
+
+.container1 {
+    width: 80%;
+    padding: 10px;
+    font-family: 'Palatino Linotype';
+    color: #154d44;
+    margin: 0 auto; /* Center the container */
+}
+
+/* Grid layout for images */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+/* Styling each grid item */
+.grid-item {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+    gap: 5px;
+}
+
+/* Image styling with responsiveness */
+.zoom-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+}
+
+    .zoom-image:hover {
+        transform: scale(1.1); /* Zoom in effect */
+    }
+
+/* Special case for the central image */
+.image-grid .grid-item:nth-child(2) img {
+    width: auto;
+    height: 63vh;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr); /* Show two columns on medium screens */
+    }
+
+        .image-grid .grid-item:nth-child(2) img {
+            height: 45vh; /* Resize central image for smaller screens */
+        }
+}
+
+@media (max-width: 768px) {
+    .image-grid {
+        grid-template-columns: 1fr; /* Show one column on small screens */
+    }
+
+        .image-grid .grid-item:nth-child(2) img {
+            height: 35vh; /* Resize central image for smaller screens */
+        }
+}
+
+@media (max-width: 480px) {
+    .zoom-image {
+        width: 100%; /* Ensure the image takes up the full width */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .image-grid .grid-item:nth-child(2) img {
+        height: auto; /* Central image scales naturally on very small screens */
+    }
+}
+/* wwwroot/css/site.css */
+#chatbox {
+    width: 300px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 20px;
+    background-color: #f9f9f9;
+}
+
+#chatlogs {
+    height: 200px;
+    overflow-y: scroll;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 10px;
+}

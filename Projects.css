@@ -1,0 +1,334 @@
+﻿
+.ourwork img{
+    display: flex;
+    flex-direction:column;
+    align-items:center;
+    padding-bottom:10px;
+}
+    .ourwork h1{
+    font-family:'Palatino Linotype';
+    font-size:25pt;
+    font-weight:bold;
+    color:black;
+    text-align:center;
+}
+    
+    .ourwork p{
+        font-family:'Palatino Linotype';
+        font-size:20pt;
+        text-align:center;
+        color:black;
+    }
+
+.legalpractice {
+    background-image: url('./background/legal-prac.jpeg'); /* Replace with your image URL */
+    background-attachment: fixed; /* Fix the background image */
+    background-size: cover; /* Make sure the image covers the entire background */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating of the image */
+    height:auto; /* Ensure the section covers the full viewport height */
+    width:100%;
+    position: relative; /* For stacking other elements over the background */
+    z-index: 1;
+}
+
+/* Optional: Style for text over the background to ensure readability */
+    .legalpractice h1 {
+    position: relative; /* Keeps text in normal flow */
+    z-index: 2; /* Ensures text is above the background image */
+    color: #ffffff; /* White text for contrast */
+    text-align: center;
+    font-family:'Palatino Linotype';
+    padding: 50px;
+    font-size:25pt;
+    background-color: rgba(0, 0, 0, 0.5); /* Optional semi-transparent background to make text readable */
+}
+
+    .legalpractice p {
+        position: relative; /* Keeps text in normal flow */
+        z-index: 2; /* Ensures text is above the background image */
+        color: #ffffff; /* White text for contrast */
+        text-align: center;
+        padding: 50px;
+        font-size:20pt;
+        font-family:'Palatino Linotype';
+        background-color: rgba(0, 0, 0, 0.5); /* Optional semi-transparent background to make text readable */
+    }
+
+.mine {
+    background-image: url('./background/mine.jpeg'); /* Replace with your image URL */
+    background-attachment: fixed; /* Fix the background image */
+    background-size: cover; /* Make sure the image covers the entire background */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating of the image */
+    height: auto; /* Ensure the section covers the full viewport height */
+    position: relative; /* For stacking other elements over the background */
+    z-index: 1;
+}
+
+    .mine h1 {
+        position: relative; /* Keeps text in normal flow */
+        z-index: 2; /* Ensures text is above the background image */
+        color: #ffffff; /* White text for contrast */
+        text-align: center;
+        font-family: 'Palatino Linotype';
+        font-size: 25pt;
+        padding: 50px;
+        background-color: rgba(0, 0, 0, 0.5); /* Optional semi-transparent background to make text readable */
+    }
+
+    .mine p {
+        position: relative; /* Keeps text in normal flow */
+        z-index: 2; /* Ensures text is above the background image */
+        color: #ffffff; /* White text for contrast */
+        text-align: center;
+        padding: 50px;
+        font-size: 20pt;
+        font-family: 'Palatino Linotype';
+        background-color: rgba(0, 0, 0, 0.5); /* Optional semi-transparent background to make text readable */
+    }
+
+.micro {
+    background-image: url('./background/agri.jpeg'); /* Replace with your image URL */
+    background-attachment: fixed; /* Fix the background image */
+    background-size: cover; /* Make sure the image covers the entire background */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating of the image */
+    height: auto; /* Ensure the section covers the full viewport height */
+    position: relative; /* For stacking other elements over the background */
+    z-index: 1;
+}
+
+    .micro h1 {
+        position: relative; /* Keeps text in normal flow */
+        z-index: 2; /* Ensures text is above the background image */
+        color: #ffffff; /* White text for contrast */
+        text-align: center;
+        font-family: 'Palatino Linotype';
+        font-size: 25pt;
+        padding: 50px;
+        background-color: rgba(0, 0, 0, 0.5); /* Optional semi-transparent background to make text readable */
+    }
+
+    .micro p {
+        position: relative; /* Keeps text in normal flow */
+        z-index: 2; /* Ensures text is above the background image */
+        color: #ffffff; /* White text for contrast */
+        text-align: center;
+        font-family: 'Palatino Linotype';
+        padding: 50px;
+        font-size: 20pt;
+        background-color: rgba(0, 0, 0, 0.5); /* Optional semi-transparent background to make text readable */
+    }
+
+.pro {
+    background-image: url('./background/court.jpeg'); /* Replace with your image URL */
+    background-attachment: fixed; /* Fix the background image */
+    background-size: cover; /* Make sure the image covers the entire background */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating of the image */
+    height: auto; /* Ensure the section covers the full viewport height */
+    position: relative; /* For stacking other elements over the background */
+    z-index: 1;
+}
+
+    .pro h1 {
+        position: relative; /* Keeps text in normal flow */
+        z-index: 2; /* Ensures text is above the background image */
+        color: #ffffff; /* White text for contrast */
+        text-align: center;
+        font-family: 'Palatino Linotype';
+        padding: 50px;
+        font-size: 25pt;
+        background-color: rgba(0, 0, 0, 0.5); /* Optional semi-transparent background to make text readable */
+    }
+
+    .pro p {
+        position: relative; /* Keeps text in normal flow */
+        z-index: 2; /* Ensures text is above the background image */
+        color: #ffffff; /* White text for contrast */
+        text-align: center;
+        font-family: 'Palatino Linotype';
+        padding: 50px;
+        font-size: 20pt;
+        background-color: rgba(0, 0, 0, 0.5); /* Optional semi-transparent background to make text readable */
+    }
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.contact-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 50px;
+    background-color: #003D33;
+    color: white;
+    height: 100vh;
+}
+
+.column {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.contact-us, .visit-us, .tell-us {
+    background-color: #1B1B1B;
+    padding: 30px;
+    margin: 10px;
+    border-radius: 5px;
+    min-height: 500px;
+}
+
+h2 {
+    font-size: 2rem;
+    text-transform: uppercase;
+}
+
+hr {
+    width: 50px;
+    border: 1px solid white;
+    margin: 20px auto;
+}
+
+.contact-item {
+    margin-bottom: 30px;
+}
+
+    .contact-item h3 {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    .contact-item p {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 5px 0;
+    }
+
+    .contact-item img {
+        margin-right: 10px;
+        height: 20px;
+        width: 20px;
+    }
+
+.visit-us address {
+    font-style: normal;
+    margin-bottom: 30px;
+}
+
+.map iframe {
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+    form input, form textarea {
+        margin-bottom: 15px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #1B4B43;
+        color: white;
+        font-size: 1rem;
+    }
+
+    form button {
+        padding: 10px;
+        background-color: #00796B;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        form button:hover {
+            background-color: #004D40;
+        }
+
+
+/* Styles for the entire container */
+.container {
+    width: 80%;
+    padding: 10px;
+    font-family: 'Palatino Linotype';
+    color: #154d44;
+    margin: 0 auto; /* Center the container */
+}
+
+/* Grid layout for images */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+/* Styling each grid item */
+.grid-item {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+    gap: 5px;
+}
+
+/* Image styling with responsiveness */
+.zoom-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+}
+
+    .zoom-image:hover {
+        transform: scale(1.1); /* Zoom in effect */
+    }
+
+/* Special case for the central image */
+.image-grid .grid-item:nth-child(2) img {
+    width: auto;
+    height: 63vh;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr); /* Show two columns on medium screens */
+    }
+
+        .image-grid .grid-item:nth-child(2) img {
+            height: 45vh; /* Resize central image for smaller screens */
+        }
+}
+
+@media (max-width: 768px) {
+    .image-grid {
+        grid-template-columns: 1fr; /* Show one column on small screens */
+    }
+
+        .image-grid .grid-item:nth-child(2) img {
+            height: 35vh; /* Resize central image for smaller screens */
+        }
+}
+
+@media (max-width: 480px) {
+    .zoom-image {
+        width: 100%; /* Ensure the image takes up the full width */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .image-grid .grid-item:nth-child(2) img {
+        height: auto; /* Central image scales naturally on very small screens */
+    }
+}

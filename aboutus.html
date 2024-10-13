@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+</head>
+
+<style>
+    /* Navigation Link Styles */
+    .nav-pills .nav-link {
+        font-family: 'Palatino Linotype', serif;
+        color: white; /* Ensure text color stays white */
+        background-color: #154d44; /* Dark green background color */
+        padding: 12px 20px;
+        border-radius: 0;
+        border: 1px solid #154d44; /* Dark green border */
+        margin-right: 10px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        box-shadow: none; /* Remove any default shadow */
+        outline: none; /* Remove outline when clicked */
+        text-decoration: none; /* Remove underline from links */
+    }
+
+        .nav-pills .nav-link:hover {
+            background-color: rgba(21, 77, 68, 0.8); /* Lighter green on hover */
+            color: #ffffff; /* Keep text white on hover */
+        }
+
+        .nav-pills .nav-link.active,
+        .nav-pills .nav-link:focus,
+        .nav-pills .nav-link:active {
+            background-color: #ffffff; /* White background for the active button */
+            color: #154d44; /* Dark green text for the active button */
+            border: 1px solid #154d44;
+        }
+
+    /* Center align navigation */
+    .nav-pills {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* Optional spacing adjustment */
+    .nav-item {
+        margin-right: 10px; /* Space between nav items */
+    }
+
+    /* Remove button defaults */
+    .nav-link {
+        appearance: none; /* Remove browser-specific button styles */
+        border: none;
+    }
+
+    /* Social Media Icon Styling */
+    .social-icon {
+        height: 30px;
+        width: 30px;
+        margin-left: 10px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+        .social-icon:hover {
+            transform: scale(1.1); /* Slight zoom on hover */
+        }
+
+    /* Footer Styling */
+    .footer {
+        padding: 20px 0;
+        position: relative;
+        width: 100%;
+        background-color: #154d44;
+        color: white;
+        text-align: center;
+        bottom: 0;
+    }
+
+    /* Chatbot Modal Styling */
+    .chatbot-modal {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        right: 20px;
+        width: 300px;
+        max-width: 100%;
+        background-color: white;
+        border: 2px solid #154d44;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        z-index: 9999; /* Ensure chatbot is always on top */
+    }
+
+    .chat-header {
+        background-color: #154d44;
+        color: white;
+        padding: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        text-align: center;
+    }
+
+    .chat-container {
+        padding: 10px;
+        height: 400px;
+        overflow-y: auto;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .input-container {
+        display: flex;
+        padding: 10px;
+        border-top: 1px solid #ccc;
+    }
+
+        .input-container input {
+            flex-grow: 1;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .input-container button {
+            background-color: #154d44;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+    /* Chat bubbles for bot and user */
+    .bot, .user {
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 10px;
+        max-width: 80%; /* Ensure bubbles don't extend too wide */
+        word-wrap: break-word; /* Wrap long words or text */
+        position: relative; /* Needed for the triangle (bubble arrow) */
+    }
+
+    /* Bot message styling */
+    .bot {
+        background-color: #154d44;
+        color: white;
+        align-self: flex-start;
+        border-radius: 10px 10px 10px 0; /* Rounded except top-right */
+        margin-left: 0;
+    }
+
+    /* User message styling */
+    .user {
+        background-color: #e0e0e0;
+        color: black;
+        text-align: right;
+        align-self: flex-end;
+        border-radius: 10px 10px 0 10px; /* Rounded except top-left */
+        margin-right: 0;
+    }
+
+    /* Chat bubble arrow for bot */
+    .bot::after {
+        content: '';
+        position: absolute;
+        top: 10px;
+        left: -10px; /* Aligns arrow with the bot message */
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent #154d44 transparent transparent; /* Triangle pointing left */
+    }
+
+    /* Chat bubble arrow for user */
+    .user::after {
+        content: '';
+        position: absolute;
+        top: 10px;
+        right: -10px; /* Aligns arrow with the user message */
+        border-width: 10px;
+        border-style: solid;
+        border-color: transparent transparent transparent #e0e0e0; /* Triangle pointing right */
+    }
+
+    /* Chatbot toggle button */
+    .chat-toggle-btn {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #154d44;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    }
+
+        .chat-toggle-btn:hover {
+            background-color: rgba(21, 77, 68, 0.8); /* Lighter green on hover */
+        }
+
+    .close-chat-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        color: white;
+    }
+
+</style>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/">
+                    <img src="./background/snp_logowhite.webp" style="width:180px; height:130px;" alt="Sher and Peter Logo" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between align-items-center">
+                    <ul class="navbar-nav nav-pills flex-grow-1">
+                        <li class="nav-item">
+                            <button class="nav-link btn btn-link @(ViewContext.RouteData.Values["page"].ToString() == "./index.html" ? "active" : "")" onclick="location.href='./index.html'">Home</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link btn btn-link @(ViewContext.RouteData.Values["page"].ToString() == '/aboutus' ? 'active' : '')" onclick="location.href='./aboutus.html'">About Us</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link btn btn-link @(ViewContext.RouteData.Values["page"].ToString() == '/ourteam' ? 'active' : '')" onclick="location.href='./ourteam.html'">Our Team</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link btn btn-link @(ViewContext.RouteData.Values["page"].ToString() == '/projects' ? 'active' : '')" onclick="location.href='./projects.html'">Projects</button>
+                        </li>
+                        <li class="nav-item">
+                            <button class="nav-link btn btn-link @(ViewContext.RouteData.Values["page"].ToString() == '/services' ? 'active' : '')" onclick="location.href='./services.html'">Services</button>
+                        </li>
+                    </ul>
+
+                    <div class="social-media-icons d-flex">
+                        <a href="https://www.facebook.com/people/Sher-Peter-Attorneys-and-Notaries/61563068243646/?mibextid=ZbWKwL"><img src="./icons/facebook.png" class="social-icon" alt="Facebook" /></a>
+                        <a href="https://www.youtube.com/%40sherandpeterattorneys"><img src="./icons/youtube.png" class="social-icon" alt="YouTube" /></a>
+                        <a href="https://www.tiktok.com/%40snp_attorneys?is_from_webapp=1&sender_device=pc"><img src="./icons/tiktok.png" class="social-icon" alt="TikTok" /></a>
+                        <a href="https://x.com/snp_attorneys"><img src="./icons/x.png" class="social-icon" alt="X (Twitter)" /></a>
+                        <a href="https://www.linkedin.com/showcase/snp_attorneys/"><img src="./icons/linkedin.png" class="social-icon" alt="LinkedIn" /></a>
+                        <a href="https://www.instagram.com/snp_attorneys/?igsh=eGM1c29tbHNtaG96"><img src="./icons/instagram.png" class="social-icon" alt="Instagram" /></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+    </header>
+</body>
+
+
+    <!-- Chatbot Toggle Button -->
+    <button class="chat-toggle-btn" id="chat-toggle-btn">Chat with us</button>
+
+    <!-- Chatbot Modal -->
+    <div class="chatbot-modal" id="chatbot-modal">
+        <div class="chat-header">
+            <h2>Sher and Peter Attorneys</h2>
+            <span class="close-chat-btn" id="close-chat-btn">&times;</span>
+        </div>
+        <div class="chat-container" id="chat-box"></div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Type a message..." />
+            <button id="send-btn">Send</button>
+        </div>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        const chatbotModal = document.getElementById("chatbot-modal");
+        const chatToggleBtn = document.getElementById("chat-toggle-btn");
+        const closeChatBtn = document.getElementById("close-chat-btn");
+
+        // Show the chatbot modal
+        chatToggleBtn.addEventListener("click", () => {
+            chatbotModal.style.display = "block";
+        });
+
+        // Close the chatbot modal
+        closeChatBtn.addEventListener("click", () => {
+            chatbotModal.style.display = "none";
+        });
+
+        let services = {
+            "Commercial Law": [
+                "Sale of Business",
+                "Sale of Shares",
+                "Service Level Agreements",
+                "E-Commerce Agreements",
+                "IT Agreements",
+                "Construction Agreements",
+                "Contractual Consulting",
+                "Joint-Venture Agreements"
+            ],
+            "Labour Law": [
+                "Employment Contracts & Labour Relations Framework Advisory",
+                "CCMA Services",
+                "Labour Law Litigation"
+            ],
+            "Civil Litigation": [
+                "Commercial Litigation",
+                "Arrear Rental & Eviction",
+                "Family Law Litigation",
+                "Application Procedure",
+                "Personal Injury Claims",
+                "Delictual Actions",
+                "Breach of Contract"
+            ],
+            "Insurance Law": [
+                "Motor Vehicle Claims",
+                "Claim Liaison",
+                "Risk Analysis & Mitigation",
+                "Disclaimer and Privacy Notices"
+            ],
+            "Company Registration": [
+                "Company (CIPC) Services including memorandums of incorporation (MOI)"
+            ],
+            "Notarial Service": [
+                "Antenuptial Contracts (ANC)",
+                "Registration of Trusts & Drafting Trust Deeds",
+                "Certification for use in foreign countries",
+                "Notarial Bonds & Deeds",
+                "Deeds Office Liaison"
+            ],
+            "General Legal Admin": [
+                "Letters of Demand",
+                "Document Analysis & Review",
+                "Memoranda Writing",
+                "Legal Research & Opinion Drafting"
+            ],
+            "Property Law": [
+                "Property & Rental Management",
+                "Residential & Commercial Lease Agreements"
+            ],
+            "Intellectual Property": [
+                "Manufacturing / End-Use License Agreements",
+                "Restraint of Trade",
+                "Trademark & Patent Applications"
+            ],
+            "Alternate Dispute Resolution": [
+                "Mediation Services",
+                "Arbitration",
+                "Settlement Proposals"
+            ]
+        };
+
+        let userInfo = {
+            name: "",
+            surname: "",
+            email: "",
+            cellNumber: "",
+            additionalInfo: "",
+            selectedServiceCategory: "",
+            selectedServiceSubCategory: ""
+        };
+
+        let currentStep = 0;
+        const chatBox = document.getElementById("chat-box");
+
+        document.getElementById("send-btn").addEventListener("click", handleUserInput);
+        document.getElementById("user-input").addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+                handleUserInput();
+            }
+        });
+
+        function handleUserInput() {
+            const userInput = document.getElementById("user-input").value;
+            if (userInput === "") return;
+
+            appendMessage("user", userInput);
+            document.getElementById("user-input").value = "";
+
+            switch (currentStep) {
+                case 0:
+                    appendMessage("bot", "Welcome to Sher and Peter Attorneys, we are pleased to have you here. Please choose a category of services that we offer:");
+                    displayServiceCategories();
+                    currentStep++;
+                    break;
+                case 1:
+                    break;
+                case 2:
+                    userInfo.name = userInput;
+                    askForSurname();
+                    break;
+                case 3:
+                    userInfo.surname = userInput;
+                    askForEmail();
+                    break;
+                case 4:
+                    userInfo.email = userInput;
+                    askForCellNumber();
+                    break;
+                case 5:
+                    userInfo.cellNumber = userInput;
+                    askForAdditionalInfo();
+                    break;
+                case 6:
+                    userInfo.additionalInfo = userInput;
+                    appendMessage("bot", "Thank you for providing your information. We'll now email your details to one of our Attorneys and they will get back to you.");
+                    emailUserData();
+                    break;
+            }
+        }
+
+        function appendMessage(sender, message) {
+            let messageElement = document.createElement("div");
+            messageElement.classList.add(sender);
+            messageElement.textContent = message;
+            chatBox.appendChild(messageElement);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function displayServiceCategories() {
+            for (const category in services) {
+                let button = document.createElement("button");
+                button.textContent = category;
+                button.classList.add("service-button");
+                button.onclick = () => handleServiceCategorySelection(category);
+                chatBox.appendChild(button);
+            }
+        }
+
+        function handleServiceCategorySelection(category) {
+            userInfo.selectedServiceCategory = category;
+            appendMessage("bot", `You have selected ${category}. Please choose a specific service:`);
+            displayServiceSubCategories(category);
+        }
+
+        function displayServiceSubCategories(category) {
+            removeButtons();
+            services[category].forEach(subCategory => {
+                let button = document.createElement("button");
+                button.textContent = subCategory;
+                button.classList.add("service-button");
+                button.onclick = () => handleServiceSubCategorySelection(subCategory);
+                chatBox.appendChild(button);
+            });
+        }
+
+        function handleServiceSubCategorySelection(subCategory) {
+            userInfo.selectedServiceSubCategory = subCategory;
+            appendMessage("bot", `You have selected ${subCategory}. To continue please provide your name:`);
+            removeButtons();
+            currentStep++;
+        }
+
+        function removeButtons() {
+            const buttons = document.querySelectorAll('.service-button');
+            buttons.forEach(button => button.remove());
+        }
+
+        function askForSurname() {
+            appendMessage("bot", "Please provide your surname:");
+            currentStep++;
+        }
+
+        function askForEmail() {
+            appendMessage("bot", "Please provide your email:");
+            currentStep++;
+        }
+
+        function askForCellNumber() {
+            appendMessage("bot", "Please provide your cell number:");
+            currentStep++;
+        }
+
+        function askForAdditionalInfo() {
+            appendMessage("bot", "Please provide any additional information you would like us to know, this will make it easier for us to assist you in a more efficient way:");
+            currentStep++;
+        }
+
+       
+
+        function emailUserData() {
+            const emailBody = `
+                        Name: ${userInfo.name}
+                        Surname: ${userInfo.surname}
+                        Email: ${userInfo.email}
+                        Cell Number: ${userInfo.cellNumber}
+                        Additional Info: ${userInfo.additionalInfo}
+                        Selected Service Category: ${userInfo.selectedServiceCategory}
+                        Selected Service Subcategory: ${userInfo.selectedServiceSubCategory}
+                    `;
+            const email = "bmranchod0017@gmail.com";
+            window.open(`mailto:${email}?subject=New Client Information&body=${encodeURIComponent(emailBody)}`);
+        }
+    </script>
+	
+</body>
+<link rel="stylesheet" href="AboutUs.css">
+
+<div style="background-image:url('./background/foreau.jpeg');">
+    <div class="headmain">
+        WELCOME TO THE FUTURE
+    </div>
+
+    <div class="greenpar">
+        Sher & Peter Attorneys and Notaries are dedicated to providing our clients with a suite of meticulously crafted legal, risk advisory and associated services.
+    </div>
+
+</div>
+
+<div class="container">
+    <div class="summary-section">
+        <div class="summary-content">
+            <div class="title">Executive</div>
+            <div class="title">Summary</div>
+            <a href="./projects.html" class="btn">Read More</a>
+        </div>
+    </div>
+    <div class="vision-section">
+        <div class="vision-content">
+            <p>Our vision is that every individual and business, regardless of size or economic standing, deserves high-quality legal services.</p>
+            <p>In an era where legal assistance is often gated by financial and social barriers, our mission to democratize access to legal services is not just noble, it's essential.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="approach-section">
+        <div class="approach-content">
+            <h1>OUR APPROACH</h1>
+            <p>We believe in legal guidance that is as precise as it is pragmatic and invite you to experience the peace of mind that comes from knowing your legal affairs are in expert hands.</p>
+        </div>
+    </div>
+    <div class="solution-section">
+        <div class="solution-content">
+            <p>We aim to break down these barriers, offering scalable solutions that bring top-tier legal counsel within the reach of all our clients.</p>
+            <p>By leveraging technology and innovative service models, we strive to provide equitable access to justice, ensuring that every voice has the chance to be heard and every right the opportunity to be upheld.</p>
+        </div>
+    </div>
+</div>
+
+<div class="container1">
+    <div class="image-grid">
+        <div class="grid-item">
+            <img src="./background/snp.png" class="zoom-image" />
+            <img src="./background/power_of_attorney.jpg" class="zoom-image" />
+        </div>
+        <div class="grid-item">
+            <img src="./background/lady justice.jpeg" class="zoom-image" />
+        </div>
+        <div class="grid-item">
+            <img src="./background/snp1.png" class="zoom-image" />
+            <img src="./background/lawyer.jpeg" class="zoom-image" />
+        </div>
+    </div>
+</div>

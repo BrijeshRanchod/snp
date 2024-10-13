@@ -1,0 +1,202 @@
+﻿/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #004d40;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-start;
+}
+
+    nav ul li {
+        margin-right: 15px;
+    }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+.partner-insights {
+    text-align: center;
+    padding: 40px 20px;
+    font-family:'Palatino Linotype';
+    font-weight:bold;
+    background-image: url('./background/fore.jpeg');
+}
+
+    .partner-insights h1 {
+        margin-bottom: 40px;
+        color: #154d44;
+        font-size: 2.5rem;
+        background-color:white;
+        width:auto;
+        height:auto;
+    }
+
+.partner-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    
+}
+
+.partner-card {
+    background-color: rgba(21, 77, 68, 0.7);
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+    .partner-card img {
+        width: 100%;
+        border-radius: 5px;
+        height: 250px;
+        object-fit: cover;
+    }
+
+    .partner-card h2 {
+        margin: 20px 0 10px 0;
+        color: white;
+        font-weight:bold;
+        font-family: 'Palatino Linotype';
+    }
+
+    .partner-card p {
+        color: white;
+        padding-bottom:5px;
+        font-size: 0.95rem;
+        font-family: 'Palatino Linotype';
+    }
+
+    .partner-card p2 {
+        color: white;
+        font-size: 0.95rem;
+        font-style:italic;
+        font-weight:bold;
+        font-family: 'Palatino Linotype';
+    }
+
+    .partner-card strong {
+        color: #004d40;
+        font-weight: bold;
+    }
+
+.quote-section {
+    background-color: #154d44;
+    padding: 50px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.quote-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+    .quote-content img {
+        width: 50%;
+        border-radius: 5px;
+        margin-right: 20px;
+    }
+
+    .quote-content blockquote {
+        font-style: italic;
+        color: #154d44;
+        font-family:'Palatino Linotype';
+        font-size: 1.5rem;
+        margin-left: 20px;
+        font-weight:bold;
+    }
+
+.container1 {
+    width: 100%;
+    padding: 10px;
+    background-color:#154d44;
+    font-family: 'Palatino Linotype';
+    color: #154d44;
+    margin: 0 auto; /* Center the container */
+}
+
+/* Grid layout for images */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+/* Styling each grid item */
+.grid-item {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+    gap: 5px;
+}
+
+/* Image styling with responsiveness */
+.zoom-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+}
+
+    .zoom-image:hover {
+        transform: scale(1.1); /* Zoom in effect */
+    }
+
+/* Special case for the central image */
+.image-grid .grid-item:nth-child(2) img {
+    width: auto;
+    height: 63vh;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr); /* Show two columns on medium screens */
+    }
+
+        .image-grid .grid-item:nth-child(2) img {
+            height: 45vh; /* Resize central image for smaller screens */
+        }
+}
+
+@media (max-width: 768px) {
+    .image-grid {
+        grid-template-columns: 1fr; /* Show one column on small screens */
+    }
+
+        .image-grid .grid-item:nth-child(2) img {
+            height: 35vh; /* Resize central image for smaller screens */
+        }
+}
+
+@media (max-width: 480px) {
+    .zoom-image {
+        width: 100%; /* Ensure the image takes up the full width */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .image-grid .grid-item:nth-child(2) img {
+        height: auto; /* Central image scales naturally on very small screens */
+    }
+}

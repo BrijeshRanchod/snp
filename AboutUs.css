@@ -1,0 +1,220 @@
+﻿.headmain {
+    font-family: 'Palatino Linotype';
+    font-size: 50px;
+    padding-top:30px;
+   
+    font-weight: bold;
+    color: #154d44;
+    background-color: rgba(128, 128, 128, 0.6);
+    text-align: center;
+}
+
+.greenpar {
+    font-family: 'Palatino Linotype';
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom:30px;
+    background-color: rgba(128, 128, 128, 0.6);
+    color: #154d44;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Palatino Linotype', serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+}
+
+.summary-section {
+    background-image: url('./background/exec-summ.jpeg');
+    background-size: cover;
+    background-position: left;
+    background-repeat: no-repeat;
+    width: 50%;
+    display: flex;
+    font-family: 'Palatino Linotype';
+    justify-content: flex-end;
+    align-items: center;
+    padding: 40px;
+    color: #154d44;
+}
+
+.summary-content {
+    text-align: center;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: 'Palatino Linotype';
+}
+
+.btn {
+    background-color: #154d44;
+    color: white;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: 'Palatino Linotype';
+    margin-top: 20px;
+}
+
+.vision-section {
+    background-image: url('./background/greenbkgrnd.png');
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+    width: 50%;
+    display: flex;
+    font-family: 'Palatino Linotype';
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+}
+
+.vision-content {
+    font-size: 26px;
+    font-weight: bold;
+    font-family: 'Palatino Linotype';
+    color: white;
+}
+
+.approach-section {
+    background-image: url('./background/logs.jpeg');
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+    width: 50%;
+    text-align: center;
+    font-family: 'Palatino Linotype';
+    padding: 40px;
+}
+
+.approach-content h1 {
+    font-size: 48px;
+    font-weight: bold;
+    background-color: rgba(128, 128, 128, 0.5);
+    font-family: 'Palatino Linotype';
+    color: black;
+}
+
+.approach-content p {
+    font-size: 26px;
+    color: black;
+    font-family: 'Palatino Linotype';
+    margin-top: 30px;
+    background-color: rgba(128, 128, 128, 0.5);
+    font-weight: bold;
+}
+
+.solution-section {
+    background-image: url('./background/brickwall.jpg');
+    background-size: cover;
+    background-position: center right;
+    background-repeat: no-repeat;
+    width: 50%;
+    display: flex;
+    font-family: 'Palatino Linotype';
+    justify-content: flex-start;
+    align-items: center;
+    padding: 40px;
+}
+
+.solution-content {
+    font-size: 28px;
+    font-weight: bold;
+    font-family: 'Palatino Linotype';
+    color: #154d44;
+}
+
+.container1 {
+    width: 100%;
+    padding: 10px;
+    font-family: 'Palatino Linotype';
+    background-image: url('./background/green.jpeg'); /* Replace with your image URL */
+    background-attachment: fixed; /* Fix the background image */
+    background-size: cover; /* Make sure the image covers the entire background */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent repeating of the image */
+    height: auto; /* Ensure the section covers the full viewport height */
+   
+    position: relative; /* For stacking other elements over the background */
+    z-index: 1;
+    color: #154d44;
+    margin: 0 auto; /* Center the container */
+}
+
+/* Grid layout for images */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+/* Styling each grid item */
+.grid-item {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+    gap: 5px;
+}
+
+/* Image styling with responsiveness */
+.zoom-image {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease; /* Smooth transition for zoom effect */
+}
+
+    .zoom-image:hover {
+        transform: scale(1.1); /* Zoom in effect */
+    }
+
+/* Special case for the central image */
+.image-grid .grid-item:nth-child(2) img {
+    width: auto;
+    height: 63vh;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .image-grid {
+        grid-template-columns: repeat(2, 1fr); /* Show two columns on medium screens */
+    }
+
+        .image-grid .grid-item:nth-child(2) img {
+            height: 45vh; /* Resize central image for smaller screens */
+        }
+}
+
+@media (max-width: 768px) {
+    .image-grid {
+        grid-template-columns: 1fr; /* Show one column on small screens */
+    }
+
+        .image-grid .grid-item:nth-child(2) img {
+            height: 35vh; /* Resize central image for smaller screens */
+        }
+}
+
+@media (max-width: 480px) {
+    .zoom-image {
+        width: 100%; /* Ensure the image takes up the full width */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    .image-grid .grid-item:nth-child(2) img {
+        height: auto; /* Central image scales naturally on very small screens */
+    }
+}
